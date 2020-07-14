@@ -34,17 +34,29 @@ app.get('/location', (request, response) => {
     let geoData = require('./data/location.json');
 
     const obj = new Location(city, geoData);
+    // Art by Hayley Jane Wakenshaw
+
+    //     __
+    // ___( o)>   <Rubber duck says: request code 200: ok.
+    // \ <_. )
+    //  `---'   hjw
     response.status(200).send(obj);
   } catch(error){
     console.log('ERROR', error);
+    // Art by Hayley Jane Wakenshaw
+
+    //     __
+    // ___( o)>   <Rubber duck says: error code 500- server side.
+    // \ <_. )
+    //  `---'   hjw
     response.status(500).send('Sorry, something went wrong with your city');
 
     // Art by Hayley Jane Wakenshaw
 
-//     __
-// ___( o)>   <Rubber duck says: We wont get this is the location is outside the scope of the json data
-// \ <_. )
-//  `---'   hjw
+    //     __
+    // ___( o)>   <Rubber duck says: We wont get this is the location is outside the scope of the json data
+    // \ <_. )
+    //  `---'   hjw
 
   }
 });
@@ -70,7 +82,7 @@ app.get('/weather', (request, response) => {
   weatherData['data'].forEach(date => {
     info.push(new Weather(date));
   });
-
+  // 200  = ok
   response.status(200).send(info);
 
 });
