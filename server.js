@@ -1,5 +1,11 @@
 /* eslint-disable no-undef */
 'use strict';
+// Art by Hayley Jane Wakenshaw
+
+//     __
+// ___( o)>   <Rubber duck says: Settup the dependencies and call your EVN file for the port
+// \ <_. )
+//  `---'   hjw
 
 const express = require('express');
 
@@ -8,15 +14,20 @@ const app = express();
 require('dotenv').config();
 
 const cors = require('cors');
+
 const { request, response } = require('express');
+
 
 app.use(cors());
 
 const PORT = process.env.PORT || 3001;
 
-// Routes
+// Art by Hayley Jane Wakenshaw
 
-//=============================Location=================================
+//     __
+// ___( o)>   <Rubber duck says: the path just for the location.
+// \ <_. )
+//  `---'   hjw
 
 app.get('/location', (request, response) => {
 
@@ -28,7 +39,15 @@ app.get('/location', (request, response) => {
     response.status(200).send(obj);
   } catch(error){
     console.log('ERROR', error);
-    response.status(500).send('Sorry, something went terribly wrong');
+    response.status(500).send('Sorry, something went wrong with your city');
+
+    // Art by Hayley Jane Wakenshaw
+
+//     __
+// ___( o)>   <Rubber duck says: We wont get this is the location is outside the scope of the json data
+// \ <_. )
+//  `---'   hjw
+
   }
 });
 
@@ -40,18 +59,21 @@ function Location(city, geoData){
   this.longitude = geoData[0].lon;
 }
 
-//=============================Weather=================================
+//     __
+// ___( o)>   <Rubber duck says: This is for the weather, and its associated by the city data: no data
+// \ <_. )    in JSON nothing to display and an error.
+//  `---'   hjw
 
 app.get('/weather', (request, response) => {
 
   let weatherData = require('./data/weather.json');
-  let forecastArray = [];
+  let info = [];
 
   weatherData['data'].forEach(date => {
-    forecastArray.push(new Weather(date));
+    info.push(new Weather(date));
   });
 
-  response.status(200).send(forecastArray);
+  response.status(200).send(info);
 
 });
 
@@ -63,7 +85,11 @@ function Weather(obj) {
 //==============================Errors=================================
 
 app.get('*', (request, response) => {
-  response.status(500).send('Sorry, something went terribly wrong');
+  response.status(500).send('Sorry, we have an internal server error');
+  //     __
+// ___( o)>   <Rubber duck says: This wont work on firefox, and thus it might be working and not show up
+// \ <_. )     unless we use google chrome as a browser
+//  `---'   hjw
 });
 
 // ====================================================================
@@ -72,3 +98,7 @@ app.get('*', (request, response) => {
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
 });
+//     __
+// ___( o)>   <Rubber duck says: this sets up the listener on the port AND we can see it in the terminal real time.
+// \ <_. )
+//  `---'   hjw
