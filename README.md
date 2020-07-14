@@ -29,15 +29,15 @@ Actual time needed to complete: 2 hours
 
 # Error handling
 
-Number and name of feature: ________________________________
+Number and name of feature: feature 3: stautus codes and error handling on try catch (but no finally) block
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 20 minutes
 
-Start time: _____
+Start time: 740 am
 
-Finish time: _____
+Finish time: 8 am
 
-Actual time needed to complete: _____
+Actual time needed to complete: less than 10
 
 
 
