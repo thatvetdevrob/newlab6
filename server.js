@@ -14,7 +14,7 @@ const app = express();
 require('dotenv').config();
 
 const cors = require('cors');
-// const { request, response } = require('express'); Chase said we might not need this but its one everyones code.
+const { request, response } = require('express');
 
 app.use(cors());
 
