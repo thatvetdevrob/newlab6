@@ -8,7 +8,7 @@ const app = express();
 require('dotenv').config();
 
 const cors = require('cors');
-// const { request, response } = require('express');
+const { request, response } = require('express');
 
 app.use(cors());
 
